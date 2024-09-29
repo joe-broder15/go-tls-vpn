@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"go-tls-vpn/client"
 	"go-tls-vpn/server"
 )
@@ -13,7 +12,7 @@ func main() {
 	pubkeyPtr := flag.String("pubkey", "server.crt", "run as a server")
 	privkeyPtr := flag.String("privkey", "server.key", "run as a server")
 	portPtr := flag.String("p", "8888", "server port")
-	// ipPtr := flag.String("p", "127.0.0.1", "ip address of server")
+	ipPtr := flag.String("ip", "127.0.0.1", "ip address of server")
 
 	flag.Parse()
 
@@ -21,6 +20,6 @@ func main() {
 	if *serverPtr {
 		server.Start(*pubkeyPtr, *privkeyPtr, *portPtr)
 	} else {
-		client.Hello()
+		client.Start(*ipPtr, *portPtr)
 	}
 }
