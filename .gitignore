@@ -22,4 +22,8 @@ go.work
 go.work.sum
 
 # env file
-.env
+*.env
+
+# cryptographic values
+*.crt 
+*.key
