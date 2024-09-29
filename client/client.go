@@ -10,7 +10,9 @@ import (
 func Start(ip string, port string) {
 	fmt.Println("client is starting...")
 
-	config := &tls.Config{}
+	config := &tls.Config{
+		InsecureSkipVerify: true,
+	}
 
 	conn, err := tls.Dial("tcp", ip+":"+port, config)
 	if err != nil {
