@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"go-tls-vpn/client"
 	"go-tls-vpn/server"
 )
 
@@ -15,6 +16,6 @@ func main() {
 	if *serverPtr {
 		fmt.Println(server.ServerHello())
 	} else {
-		fmt.Println("Run as client")
+		client.Hello()
 	}
 }
